@@ -3,19 +3,17 @@ package br.faccat.padarqsis.customerregistry.controller;
 import br.faccat.padarqsis.customerregistry.model.CustomerModel;
 import br.faccat.padarqsis.customerregistry.service.CustomerService;
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@AllArgsConstructor
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
 
     private final CustomerService customerService;
-
-    public CustomerController(CustomerService customerService) {
-        this.customerService = customerService;
-    }
 
     @PostMapping("/create")
     public CustomerModel createCustomer(@Valid @RequestBody CustomerModel customer) {
